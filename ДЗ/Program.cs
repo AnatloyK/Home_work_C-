@@ -63,4 +63,43 @@ void Zadacha4()
     }
 }
 
+void Zadacha5() //Напишите программу, которая с помощью деления выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+{
+    Console.WriteLine("Введите любое 3-х значное число");
+    Console.Write("a = ");
+    int numberA = Convert.ToInt32(Console.ReadLine());
+    if (numberA < 100)
+    {
+        Console.WriteLine("У заданного числа нет 3 цифры");
+    }
+    else
+    {
+        int result = (numberA % 100) % 10;
+        Console.WriteLine(result);
+    }
+}
+
+void Zadacha6() //Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+{
+    Console.WriteLine("Введите цифру дня недели");
+    Console.Write("День недели = ");
+    int NumDay = Convert.ToInt32(Console.ReadLine());
+    if (NumDay > 0 && NumDay < 8)
+        if (NumDay == 6 || NumDay == 7)
+        {
+            if (NumDay == 6) Console.WriteLine("Суббота выходной день");
+            if (NumDay == 7) Console.WriteLine("Воскресенье выйходной день");
+        }
+        else
+        {
+            Console.WriteLine("На работу =(");
+        }
+    else
+    {
+        Console.WriteLine("Неверное значение");
+    }
+}
+Zadacha6();
+
+
 // Задачи "Заvoidены")))
