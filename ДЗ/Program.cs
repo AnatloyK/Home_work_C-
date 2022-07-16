@@ -65,7 +65,7 @@ void Zadacha4()
 
 void Zadacha5() //Напишите программу, которая с помощью деления выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 {
-    Console.WriteLine("Введите любое 3-х значное число");
+    Console.WriteLine("Введите число");
     Console.Write("a = ");
     int numberA = Convert.ToInt32(Console.ReadLine());
     if (numberA < 100)
@@ -74,8 +74,10 @@ void Zadacha5() //Напишите программу, которая с пом�
     }
     else
     {
-        int result = (numberA % 100) % 10;
-        Console.WriteLine(result);
+        if (numberA > 99 && numberA < 1000) Console.WriteLine((numberA % 100) % 10);
+        if (numberA > 999 && numberA < 10000) Console.WriteLine(((numberA % 1000) % 100) / 10);
+        if (numberA > 9999 && numberA < 100000) Console.WriteLine(((numberA % 10000) % 1000) / 100);
+        if (numberA > 99999 && numberA < 1000000) Console.WriteLine(((numberA % 100000) % 10000) / 1000);
     }
 }
 
@@ -88,7 +90,7 @@ void Zadacha6() //Напишите программу, которая прини
         if (NumDay == 6 || NumDay == 7)
         {
             if (NumDay == 6) Console.WriteLine("Суббота выходной день");
-            if (NumDay == 7) Console.WriteLine("Воскресенье выйходной день");
+            if (NumDay == 7) Console.WriteLine("Воскресенье выходной день");
         }
         else
         {
@@ -99,7 +101,8 @@ void Zadacha6() //Напишите программу, которая прини
         Console.WriteLine("Неверное значение");
     }
 }
-Zadacha6();
+
+Zadacha5();
 
 
 // Задачи "Заvoidены")))
