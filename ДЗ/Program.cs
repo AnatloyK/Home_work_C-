@@ -170,7 +170,7 @@ void Zadacha10() //Дано трёхзначное число N. Определ�
     }
     else
     {
-        Console.WriteLine($"Сумма чисел не равна {sum} и делится на 3");
+        Console.WriteLine($"Сумма чисел равна {sum} и не делится на 3");
     }
 }
 
@@ -204,5 +204,98 @@ void Zadacha12() //Дан массив длиной 10 элементов. За�
     }
     Console.WriteLine("[{0}]", string.Join(", ", array)); 
 }
-Zadacha12();
+void Zadacha13()
+{
+   Console.WriteLine("Введите номер четверти");
+   int number = Convert.ToInt32(Console.ReadLine());
+   Random rand = new Random();
+   if (number < 1 || number > 4) Console.WriteLine("Введено неверное значение");
+   else if (number == 1)
+   {
+        int x1 = rand.Next(1,100);
+        int y1 = rand.Next(1,100);
+        int x2 = rand.Next(1,100);
+        int y2 = rand.Next(1,100);
+        int x3 = rand.Next(1,100);
+        int y3 = rand.Next(1,100);
+   }
+   else if (number == 2)
+   {
+        int x1 = rand.Next(-1, -100);
+        int y1 = rand.Next(1,100);
+        int x2 = rand.Next(-1, -100);
+        int y2 = rand.Next(1, 100);
+        int x3 = rand.Next(-1, -100);
+        int y3 = rand.Next(1,100);
+   }
+
+    
+
+}
+
+void Zadacha14() //Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+{
+    Console.WriteLine("Введите число ");
+    Console.Write("а = ");
+    int numbera = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число ");
+    Console.Write("b = ");
+    int numberb = Convert.ToInt32(Console.ReadLine());
+    int i = 1;
+    int mult = 1;
+    while(i <= numberb)
+    {
+        mult *= numbera;
+        i = i+1;
+    }
+    Console.WriteLine(mult);
+}
+
+void Zadacha15() //  Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+{
+    Console.WriteLine("Введите число ");
+    Console.Write("а = ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    int sum = 0;
+    while (number != 0)
+    {
+        sum = sum + (number % 10);
+        number /= 10;
+    }
+    Console.WriteLine(sum);
+}
+
+void Zadacha16() // Напишите программу, которая задаёт массив из 8 элементов и выводит отсортированный по модулю массив
+{
+    int[] array = new int[8];
+    int c = 0;
+    Random rand = new Random();
+    while (c < 8)
+    {
+        array[c] = rand.Next(1, 100);
+        c++;
+    }
+    Console.WriteLine("[{0}]", string.Join(", ", array)); 
+    for(int i = 0; i < array.Length; i++)
+    {
+        int posmin = i;
+        int j = i + 1;
+        int temp;
+        if (array[j] > array[i]) j++;
+        else
+        {
+            temp = array[j];
+            array[j] = array[posmin];
+            array[i] = temp;
+        }
+    }
+    Console.WriteLine("[{0}]", string.Join(", ", array)); 
+    //for(int k = 0; k < array.Length; k++)
+   // {
+   //     Console.Write(array[k]);
+   // } 
+
+}
+Zadacha16();
+
 // Задачи "Заvoidены")))
