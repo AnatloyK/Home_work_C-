@@ -323,12 +323,12 @@ void Zadacha17() // Напишите метод, который заполняе
    Random random = new Random();
    int n = random.Next(0,101);
    int[] array = new int[n];
-   double nt = (Math.Round(Math.Sqrt(n), MidpointRounding.ToEven));
+   double nt = (Math.Round(Math.Sqrt(n), MidpointRounding.ToEven)); // провекра на целое чесило после извлечения корня из размера массива
    int i = 0;
    int count = 0;
    while(nt * nt != n)
    {
-        n = random.Next(0, 101);
+        n = random.Next(0, 101); // цикл создания нового массива пока корень размера массива не будет равен целому числу
    }
    while(count != nt)
    {
