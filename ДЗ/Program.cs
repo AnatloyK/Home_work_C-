@@ -204,6 +204,7 @@ void Zadacha12() //Дан массив длиной 10 элементов. За�
     }
     Console.WriteLine("[{0}]", string.Join(", ", array)); 
 }
+
 void Zadacha13()
 {
    Console.WriteLine("Введите номер четверти");
@@ -228,6 +229,25 @@ void Zadacha13()
         int x3 = rand.Next(-1, -100);
         int y3 = rand.Next(1,100);
    }
+   else if (number == 3)
+   {
+        int x1 = rand.Next(-1, -100);
+        int y1 = rand.Next(-1, -100);
+        int x2 = rand.Next(-1, -100);
+        int y2 = rand.Next(-1, -100);
+        int x3 = rand.Next(-1, -100);
+        int y3 = rand.Next(-1, -100);
+   }
+   else if (number == 4)
+   {
+        int x1 = rand.Next(1, 100);
+        int y1 = rand.Next(-1, -100);
+        int x2 = rand.Next(1, 100);
+        int y2 = rand.Next(-1, -100);
+        int x3 = rand.Next(1, 100);
+        int y3 = rand.Next(-1, -100);
+   }
+
 
     
 
@@ -265,37 +285,62 @@ void Zadacha15() //  Напишите программу, которая при�
     Console.WriteLine(sum);
 }
 
-void Zadacha16() // Напишите программу, которая задаёт массив из 8 элементов и выводит отсортированный по модулю массив
+
+void Zadacha16() // Напишите программу, которая задаёт массив из 8 элементов и выводит отсортированный по модулю массив.
 {
     int[] array = new int[8];
-    int c = 0;
-    Random rand = new Random();
-    while (c < 8)
+    Random random = new Random();
+    int i = 0;
+    while (i < 8)
     {
-        array[c] = rand.Next(1, 100);
-        c++;
+        array[i] = random.Next(0,101);
+        i++;
     }
-    Console.WriteLine("[{0}]", string.Join(", ", array)); 
-    for(int i = 0; i < array.Length; i++)
+    Console.Write("Сгенерированный массив: ");
+    Console.WriteLine("[{0}]", string.Join(", ", array));
+    int temp;
+    for (int k = 0; k < array.Length - 1; k++)
     {
-        int posmin = i;
-        int j = i + 1;
-        int temp;
-        if (array[j] > array[i]) j++;
-        else
+        for (int j = k + 1; j < array.Length; j++)
         {
-            temp = array[j];
-            array[j] = array[posmin];
-            array[i] = temp;
+            if (array[k] > array[j])
+            {
+                temp = array[k];
+                array[k] = array[j];
+                array[j] = temp;
+            }
+            
         }
     }
-    Console.WriteLine("[{0}]", string.Join(", ", array)); 
-    //for(int k = 0; k < array.Length; k++)
-   // {
-   //     Console.Write(array[k]);
-   // } 
-
+    Console.Write("Сортированный массив: ");
+    Console.WriteLine("[{0}]", string.Join(", ", array));
 }
-Zadacha16();
+    
+
+
+void Zadacha17() // Напишите метод, который заполняет массив случайным количеством (от 1 до 100) нулей и единиц. Размер массива должен совпадать с квадратом количества единиц в нём.
+{
+   Random random = new Random();
+   int n = random.Next(0,101);
+   int[] array = new int[n];
+   double nt = (Math.Round(Math.Sqrt(n), MidpointRounding.ToEven));
+   int i = 0;
+   int count = 0;
+   while(nt * nt != n)
+   {
+        n = random.Next(0, 101);
+   }
+   while(count != nt)
+   {
+        array[i] = random.Next(0,2);
+        if(array[i] == 1) count++;
+        i++;
+   }
+   Console.WriteLine($"Колличество едениц в массиве - {count}");
+   Console.WriteLine($"Размер массива - {n}");
+   Console.Write("Вывод массива: ");
+   Console.Write("[{0}]", string.Join(", ", array));
+}
 
 // Задачи "Заvoidены")))
+Zadacha17();
